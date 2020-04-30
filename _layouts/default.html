@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html prefix="og: http://ogp.me/ns#">
   <head>
     <meta charset="utf-8">
 
@@ -22,6 +22,14 @@
 
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
     {% include rss_discovery.html %}
+
+    <meta property="og:url" content="{{ site.url }}{{ page.url | replace: 'index.html', '' }}">
+    <meta property="og:image" content="{{ site.url }}/images/ogp-image.png">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="{{ page.lang }}">
+    <meta property="og:site_name" content="Ruby Programming Language">
+    <meta property="og:title" content="{{ page.title | default: 'Ruby Programming Language' }}">
+    <meta property="og:description" content="{{ page.content | strip_html | normalize_whitespace | truncate: 300 | escape }}">
 
     <script type="text/javascript" src="/javascripts/jquery.min.js"></script>
     <script type="text/javascript" src="/javascripts/page.js"></script>
